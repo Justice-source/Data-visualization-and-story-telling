@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="Justice" />
+  <title>Data Visualization and storytelling</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Data Visualization and storytelling</h1>
+<p class="author">Justice</p>
+<p class="date"><code>r Sys.Date()</code></p>
+</header>
+<h2
+id="programs-used-for-data-visualisation-of-the-pokemon-datasets">Programs
+used for data visualisation of the Pokemon datasets</h2>
+<p>I made use of R ,R is a programming language for statistical
+computing and graphics supported by the R Core Team and the R Foundation
+for Statistical Computing. I made use of R studio for coding for the
+hakathon.</p>
+<h2
+id="libraries-used-for-data-visualisation-of-the-pokemon-datasets">Libraries
+used for data visualisation of the Pokemon datasets</h2>
+<p>library(tidyverse)</p>
+<p>library(ggplot2)</p>
+<p>library(ggpubr)</p>
+<p>library(L1pack)</p>
+<p>library(yardstick)</p>
+<p>library(dplyr)</p>
+<p>library(GGally)</p>
+<p>library(DT)</p>
+<p>library(waffle)</p>
+<p>library(extrafont)</p>
+<p>library(showtext)</p>
+<p>library(hrbrthemes)</p>
+<p>library(echarts4r)</p>
+<p>library(echarts4r.assets)</p>
+<p>library(knitr)</p>
+<p>library(skimr)</p>
+<p>library(ggthemes)</p>
+<p>library(Sleuth3)</p>
+<p>library(scales)</p>
+<p>library(devtools) find_rtools()</p>
+<p>The package echarts4r.assets is not available on CRAN so you need to
+install it from github account by running this command
+devtools::install_github(“JohnCoene/echarts4r.assets”)</p>
+<h1 id="install.packagesdevtools">install.packages(“devtools”)</h1>
+<p>devtools::install_github(“r-lib/conflicted”)</p>
+<p>Install the packages used for Infographic Charts You can install
+these packages by running command install.packages(). The package
+echarts4r.assets is not available on CRAN so you need to install it from
+github account by running this command
+devtools::install_github(“JohnCoene/echarts4r.assets”)</p>
+<pre><code>waffle
+extrafont
+showtext
+tidyverse
+hrbrthemes
+echarts4r
+echarts4r.assets</code></pre>
+<h2 id="i-will-be-utilizing-code-chunks.">I will be utilizing code
+chunks.</h2>
+<p><code>{r setup, include=FALSE} knitr::opts_chunk$set(echo = TRUE)</code></p>
+<h2 id="r-markdown">R Markdown</h2>
+<p>This is an R Markdown document. Markdown is a simple formatting
+syntax for authoring HTML, PDF, and MS Word documents. For more details
+on using R Markdown see <a href="http://rmarkdown.rstudio.com"
+class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>When you click the <strong>Knit</strong> button a document will be
+generated that includes both content as well as the output of any
+embedded R code chunks within the document. You can embed an R code
+chunk like this:</p>
+<h2 id="including-plots">Including Plots</h2>
+<p>Sure! To create an Data visualization in R Markdown using a provided
+Pokemon CSV file, you can follow these steps:</p>
+<p>Step 1: Install Required Packages Install the necessary packages for
+data manipulation and visualization. You can use the
+<code>tidyverse</code> package for this:</p>
+<pre class="{r}"><code>install.packages(&quot;tidyverse&quot;)</code></pre>
+<p>Step 2: Load the Required Packages Load the <code>tidyverse</code>
+package to access its functions:</p>
+<pre class="{r}"><code>library(tidyverse)</code></pre>
+<p>Step 3: Read the CSV File Read the CSV file into a data frame using
+the <code>read_csv()</code> function:</p>
+<pre class="{r}"><code>data &lt;- read_csv(&quot;pokemon.csv&quot;)
+
+
+# Load data
+filter &lt;- c(&quot;Grass&quot;, &quot;Fire&quot;, &quot;Water&quot;, &quot;Psychic&quot;, &quot;Normal&quot;, &quot;Dragon&quot;, &quot;Flying&quot;, &quot;Dark&quot;, &quot;Rock&quot;, 
+            &quot;Steel&quot;, &quot;Ice&quot;, &quot;Poison&quot;, &quot;Bug&quot;, &quot;Electric&quot;, &quot;Ground&quot;, &quot;Ghost&quot;, &quot;Fairy&quot;, &quot;Fighting&quot;)
+df &lt;- read_csv(file.path(dirs$root, dirs$data, csvfile))
+
+#show_col_types = FALSE</code></pre>
+<h2 id="skimr">skimr</h2>
+<p>skimr is designed to provide summary statistics about variables in
+data frames, tibbles, data tables and vectors. It is opinionated in its
+defaults, but easy to modify. In base R, the most similar functions are
+summary() for vectors and data frames and fivenum() for numeric
+vectors.</p>
+<p>By design, the main focus of skimr is on data frames; it is intended
+to fit well within a data pipeline and relies extensively on tidyverse
+vocabulary, which focuses on data frames.</p>
+<p>It is very good in summarizing a data set</p>
+<pre class="{r}"><code># Type in your code after this line!
+library(skimr)
+skim(df)</code></pre>
+<p>Step 4: Explore the Data Inspect the data to understand its structure
+and variables using functions like <code>head()</code>,
+<code>str()</code>, or <code>summary()</code>:</p>
+<pre class="{r}"><code>head(data)
+str(data)
+summary(data)</code></pre>
+<p>I will make sure to customize the plots, labels, and titles according
+to my dataset and analysis needs.</p>
+<p><code>{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'} knitr::include_graphics("image1.png")</code></p>
+<h2 id="data-pre-processing">Data Pre-processing</h2>
+<p>Data pre-processing is an important and crucial step in the data
+visualization and storytelling process. It refers to the cleaning,
+transforming, and integrating of data in order to make it ready for
+analysis. The goal of data pre-processing is to improve the quality of
+the data and to make it more suitable for the specific data
+visualization task.</p>
+<p>I am going load the needed packages for this tasks in Rstudio and
+proceed.</p>
+<p>The original Pokemon data set included 1194 observations with 13
+variables including Names, Type1, Type2, Hp, Total, Attack, Defense,
+Speed,Sp. Atk and Sp. Def. [1]. The data set included a lot of
+qualitative data that would not be necessary for this EDA(Exploratory
+Data Analysis) so some of the variables will later be removed to enhance
+better Data visualization.</p>
+<pre class="{r}"><code># Load packages
+library(tidyverse)
+library(ggplot2)
+library(ggpubr)
+library(L1pack)
+library(yardstick)
+library(dplyr)
+library(GGally)
+library(DT)</code></pre>
+<pre class="{r}"><code># Load Data
+
+data &lt;- read_csv(&quot;pokemon.csv&quot;)
+
+df &lt;- read_csv(file.path(dirs$root, dirs$data, csvfile))
+
+new_data &lt;- subset(data)
+
+# Make a dataset with our data statistics for each Pokemon
+pokemon_data_stats &lt;- new_data[c(&quot;Id&quot;, &quot;Names&quot;, &quot;Type1&quot;, &quot;Type2&quot;, &quot;HP&quot;, &quot;Attack&quot;, &quot;Defense&quot;, &quot;Sp. Atk&quot;, &quot;Sp. Def&quot;, &quot;Speed&quot;, &quot;Total&quot;)]
+
+new_names1 &lt;- c(&#39;ID&#39;, &#39;Name&#39;, &#39;type1&#39;, &#39;type2&#39;, &#39;hp&#39;, &#39;attack&#39;, &#39;defense&#39;, &#39;Special Atk&#39;, &#39;Special Def&#39;, &#39;speed&#39;, &#39;Total&#39;)
+names(pokemon_data_stats) &lt;- new_names1
+
+# Make a dataset with all our relevant numerical data variables
+pokemon_datanum_stats &lt;- new_data[c(&quot;Id&quot;, &quot;HP&quot;, &quot;Attack&quot;, &quot;Defense&quot;, &quot;Sp. Atk&quot;, &quot;Sp. Def&quot;, &quot;Speed&quot;, &quot;Total&quot;)]
+
+new_names3 &lt;- c(&#39;ID&#39;, &#39;hp&#39;, &#39;attack&#39;, &#39;defense&#39;, &#39;Special Atk&#39;, &#39;Special Def&#39;, &#39;speed&#39;, &#39;Total&#39;)
+
+names(pokemon_datanum_stats) &lt;- new_names3
+pokemon_datanum_stats[] &lt;- lapply(pokemon_datanum_stats, function(x) 
+as.numeric(as.character(x)))
+pokemon_datanum_stats &lt;- pokemon_datanum_stats %&gt;% na.omit()</code></pre>
+<p><code>{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'} knitr::include_graphics("image.jpg")</code></p>
+<h2 id="data-visualisation">Data Visualisation</h2>
+<p>Data Visualization</p>
+<p>Now let’s look at our pokemon data using EDA (Exploratory Data
+Analysis). This is a crucial step in data analysis because learning more
+about the data before diving too deep into any topic might help you
+discover information that changes how you want to proceed.</p>
+<p>I will be working with Box plots, In descriptive statistics, a box
+plot is a method for graphically demonstrating the locality, spread and
+skewness groups of numerical data through their quartiles.</p>
+<h2 id="boxplot">Boxplot</h2>
+<p>Box plots are a great way to look at one variable of a data set
+because it gives you a quick way to see its mean, minimum, maximum, and
+upper/lower quartiles. I created 9 box plots side by side to examine one
+variable (attack or defense) across another variable (Speed).</p>
+<pre class="{r}"><code># Generate Attack Box Plot
+attack_box_plot &lt;- ggplot(aes(group=Speed,x= Speed, y=Attack, color=Speed),data=data) + geom_boxplot() + labs(x= &quot;Speed (1-9)&quot;, y=&quot;Attack&quot;, title = &quot;Attack Stats by Speed&quot;)
+
+# Generate Defense Box Plot
+defense_box_plot &lt;- ggplot(aes(group=Speed,x= Speed, y=Defense, color=Speed),data=data) + geom_boxplot() + labs(x= &quot;Speed (1-9)&quot;, y=&quot;Defense&quot;, title = &quot;Defense Stats by Speed&quot;)
+
+# Arrange Box Plots Side-by-Side
+ggarrange(attack_box_plot, defense_box_plot, ncol = 2)</code></pre>
+<h2 id="section"></h2>
+<p>It seems like the general mix of Pokemon in each speed column(attack
+and defense) is relative. In the Box plot analyzing attack against
+speed, Most Pokemons seem to have a higher attack level when utilizing
+their attacks with increased speed. Whereas In the Box plot analyzing
+defense against speed, Most Pokemons seem to have a higher defense level
+when utilizing their defenses with reduced speed. Although defense
+potential can differ depending on the pokemon and its type, most tend to
+have a higher value for defense with speeds not greater than 100.</p>
+<p>Next, I used box plots again to examine how Attack and Defense
+variables changed across Type1(Primary) types.</p>
+<pre class="{r}"><code># Box plot of Attack Stats by Primary Type
+ggplot(data=pokemon_data_stats, mapping=aes( x=attack, color=type1))+geom_boxplot()+coord_flip()+labs(title=&quot;Boxplots of Attack Statistics by Primary Type1&quot;)
+
+# Box plot of Defense Stats by Primary Type
+ggplot(data=pokemon_data_stats, mapping=aes( x=defense, color=type1))+geom_boxplot()+coord_flip()+labs(title=&quot;Boxplots of Defense Statistics by Type1&quot;)</code></pre>
+<p>In our box plots showing Attack and Defense stats by Type1
+statistics, we can see that Rock,bug and Steel types have the highest
+defense usually while Electric and Normal have the lowest defenses.</p>
+<p>Fire, Dragon and Ground types generally have the highest attack,
+while Fairy and Psychic types have lower defenses. This may be because
+Fairy and Psychic types usually have high Special Defense instead.</p>
+<h2 id="scatter-plot">Scatter plot</h2>
+<p>Scatter plots are the graphs that present the relationship between
+two variables in a data-set. It represents data points on a
+two-dimensional plane or on a Cartesian system. The independent variable
+or attribute is plotted on the X-axis, while the dependent variable is
+plotted on the Y-axis.</p>
+<p>Next, a scatter plot matrix can show regression lines for how each of
+the base stats relate to each other. This provides a more in depth p
+view of the correlations between the data stats.</p>
+<pre class="{r}"><code># Make a Scatter plot Matrix with Regression Lines for Data Stats
+pairs(pokemon_data_stats[,5:11], panel=panel.smooth, col=&#39;light green&#39;,main=&quot;Scatterplot Matrix with Regression Lines for Data Stats&quot;)</code></pre>
+<p>I don’t recommend the scatter plot matrix, once you know the focus of
+your data analysis because it is hard to get any conclusive data
+visualization when looking at so many variables simultaneously.</p>
+<p>Our scatter plot matrix shows us that data stats for Pokemon
+generally have a slight positive relationship with each other. This
+suggests that Pokemon with a high data stat in one area usually has high
+data stats in other areas. This kind of scatter plot matrix can be
+useful for getting a very clear view of our data as a whole, but it
+doesn’t offer clear evidence in our Pokemon data set.</p>
+<p>Then, I created another dashboard with a series of scatter plots,
+density graphs, and a correlation matrix showing the differences between
+the Total stats and the other Pokemon numerical stats such as hp,
+attack, defense, Special Atk, Special Def and speed.</p>
+<p>Total stats of a pokemon seems to correlate alot with other pokemon
+numerical stats as our results were TRUE.</p>
+<pre class="{r}"><code>pokemon_datanum_logical_Total &lt;- pokemon_datanum_stats
+pokemon_datanum_logical_Total$Total &lt;- as.logical(pokemon_datanum_logical_Total$Total)
+ggpairs(pokemon_datanum_logical_Total, columns = 2:8, ggplot2::aes(color=Total), title = &quot;Scatterplot, Density Graph, and Correlation Coefficient Matrix
+        colored by Total Status&quot;)</code></pre>
+<p>The density graphs indicate that the Total stats of a Pokemon is more
+as a combination of attack, Special Atk, and defense when observed. The
+correlation coefficient matrix shows that most of the stats are highly
+correlated with each other.</p>
+<h2
+id="i-visualized-attack-vs.-defense-in-our-pokemon-data-using-a-scatter-plot.">I
+visualized Attack vs. Defense in our Pokemon data using a scatter
+plot.</h2>
+<pre class="{r}"><code>library(tidyverse)
+library(ggplot2)
+library(Sleuth3)
+library(scales)
+
+pokemon_datanum_logical_Total &lt;- new_data
+pokemon_datanum_logical_Total$Total &lt;- as.logical(pokemon_datanum_logical_Total$Total)
+pokemon_datanum_logical_Total &lt;- pokemon_datanum_logical_Total %&gt;% 
+
+  arrange(-Attack, -Defense) %&gt;%
+
+ ggplot2::aes(x = Attack, y = Defense,  color=data)
+
+data = new_data
+
+#display the names of all objects in environment
+ls()
+
+#check if data exists
+exists(&#39;data&#39;)
+
+ #slice(1:100)  %&gt;%
+
+
+library(ggthemes)
+new_data %&gt;%
+group_by(Attack,Defense) %&gt;% #calculate the mean Score of Attack and Defense 
+summarize(average_Score = mean(HP, na.rm = TRUE), n= n()) 
+
+ggplot(data= new_data, aes(x = Attack, y = Defense)) +
+  geom_point(color = &quot;grey&quot;, size = 3, color= data, alpha = 0.6) +
+
+  labs(title = &quot;My Scatter Plot&quot;, x = &quot;X-axis Label&quot;, y = &quot;Y-axis Label&quot;) +
+
+  geom_text(aes(x = Attack, 
+                y = Defense, label = Names), 
+            check_overlap = TRUE, 
+            col = &quot;grey50&quot;,
+            hjust = 0, 
+            alpha = 0.8) +
+  
+  
+  ggtitle(label=&#39;Pokemon attack and defense Scatterplot&#39;) +
+  scale_size_continuous(guide=&quot;none&quot;)+
+  scale_y_log10(&quot;defense (%) (log scale)&quot;)+
+  scale_x_log10(&quot;attack (%) (log scale)&quot;)+
+  scale_color_brewer(palette = 5, type = &quot;qual&quot;) +
+  theme_classic()
+  scale_x_continuous( trans= &#39;log10&#39;)
+
+
+
+
+</code></pre>
+<p>Our Pokemon attack and defense scatter plot demonstrates that the two
+variables usually go together and Pokemons high in defense are also high
+in attack on an average.</p>
+<h2 id="notable-outliers-are-shuckle-and-magikarp.">Notable outliers are
+shuckle and magikarp.</h2>
+<p><code>{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'} knitr::include_graphics("shuckle.jpg") knitr::include_graphics("magikarp.jpg")</code>
+<code>{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'} knitr::include_graphics("shuckle.jpg")</code></p>
+<p>Shuckle is a Bug/Rock-type Pokemon introduced in Generation II. It is
+known for having the highest Defense and Special Defense stats of any
+Pokemon. Shuckle is low in attack stats but exceeds greatly in its
+defense stats.</p>
+<p><code>{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'} knitr::include_graphics("magikarp.jpg")</code></p>
+<p>Magikarp is a Water type Pokémon introduced in Generation 1. Magikarp
+is known for being one of the weakest Pokemon, with poor stats. it has a
+high defense stat but low attack stat.</p>
+<h2
+id="the-highest-outlier-in-both-attack-and-defense-stats-is-steelix-mega-steelix">The
+highest outlier in both attack and defense stats is Steelix Mega
+Steelix</h2>
+<p><code>{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'} knitr::include_graphics("steelix.jpg")</code></p>
+<p>Steelix is a Steel/Ground type Pokémon introduced in Generation 2.
+Steelix has very high attack and defense stats as observed in the
+scatter plot.</p>
+<h2 id="other-outliers-include-blissey-and-chansey">Other outliers
+include Blissey and Chansey</h2>
+<p><code>{r pressure, echo=FALSE, fig.cap="A caption", out.width = '100%'} knitr::include_graphics("blissey.jpg") knitr::include_graphics("chansey.jpg")</code>
+Blissey and chansey.</p>
+<p>```{r pressure, echo=FALSE, fig.cap=“A caption”, out.width = ‘100%’}
+knitr::include_graphics(“blissey.jpg”)</p>
+<pre><code>
+Blissey is a Normal type Pokemon introduced in Generation 2.
+Blissey is characterized as having very low attack and defense stats.
+
+
+
+```{r pressure, echo=FALSE, fig.cap=&quot;A caption&quot;, out.width = &#39;100%&#39;}
+knitr::include_graphics(&quot;chansey.jpg&quot;)</code></pre>
+<p>Chansey is a Normal type Pokemon introduced in Generation 1. Chansey
+is characterized as having very low attack and defense stats.</p>
+<h2
+id="doing-a-preliminary-eda-of-the-data-allows-you-as-a-data-analyst-to-approach-your-data-more-effectively.">Doing
+a preliminary EDA of the data allows you as a data analyst to approach
+your data more effectively.</h2>
+<p>Do Pokemon become stronger or weaker when they have higher speeds or
+not?</p>
+<p>If we only look at Attack and Defense, it seems from the box plots of
+Attack and Defense by Speed We found out that Speed plays a major role
+in attack and defense. Attack seems more dependent on Speed than defense
+seems to be.</p>
+<pre class="{r}"><code>library(tidyverse)
+library(ggthemes)
+new_data %&gt;%
+  
+group_by(Attack,Defense) %&gt;% #calculate the mean Score of Attack and Defense 
+summarize(average_Score = mean(HP, na.rm = TRUE), n= n()) 
+
+new_data %&gt;%
+group_by(Attack,Defense,Total) %&gt;% #calculate the Total mean Score of Attack, Defense and Total
+summarize(total_mean_Score = mean(HP, na.rm = TRUE), n= n()) 
+
+
+</code></pre>
+<p>I think we can conclude that Pokemon did become stronger by attacks
+based on higher speeds and some did become weak by attacks due to
+reduced speeds. Now by defense based on higher speeds there were
+variability but most of the pokemon did exhibit higher defense stats
+with relation to speed and exhibited variable results with reduced
+speeds.</p>
+<h2
+id="what-types-of-pokemon-generally-have-higher-attack-or-defense-stats">What
+types of Pokemon generally have higher attack or defense stats?</h2>
+<p>We can answer this question similarly, by grouping our dataset by
+Type1 and calculating the mean Attack and Defense stats of each
+type.</p>
+<pre class="{r}"><code>  data %&gt;%
+  group_by(Type1) %&gt;%
+  summarise_at(c(&quot;Attack&quot;, &quot;Defense&quot;), mean, na.rm = TRUE) %&gt;%
+  arrange(desc(Attack)) %&gt;% 
+  
+  </code></pre>
+<p>Fighting types exhibiting the higher attack and defense stats
+according to our data visualization. We can see that Fighting, Dragon
+and Ground generally have the highest Attack and Defense stats, while
+Bug, Ghost, and Fairy types have the lowest.</p>
+<h2
+id="what-types-of-pokemon-generally-have-sp.-atk-or-sp.-def-stats">What
+types of Pokemon generally have SP. Atk or SP. Def stats?</h2>
+<p>Something to keep in mind is that there are also Special Attack and
+Special Defense types however, and these stats are particularly high in
+Psychic and Dragon types which explains discrepancy in data
+visualisation with attack and defense stats when cross analysed with
+special attack and special defense stats.</p>
+<pre class="{r}"><code>data %&gt;%
+  group_by(Type1) %&gt;%
+  summarise_at(c(&quot;Sp. Atk&quot;, &quot;Sp. Def&quot;), mean, na.rm = TRUE) %&gt;%
+  arrange(desc(`Sp. Atk`)) %&gt;% 
+  </code></pre>
+<p>Pokemon types with special attack and defense abilities goes to
+psychic types. Psychic, Dragon and Electric types are the highest in
+terms of special attacks and defense stats. Where as Pokemon with the
+lowest stats for special attack and special defense were Fighting, Bug
+and Ground.</p>
+<h2
+id="does-speed-have-any-correlation-with-hp-attack-or-defense-stats">Does
+Speed have any correlation with hp, attack, or defense stats?</h2>
+<p>We can check this by constructing a correlation matrix that shows how
+much Speed is correlated with HP, Attack, and Defense in the
+dataset.</p>
+<pre class="{r}"><code>library(tidyverse)
+library(ggthemes)
+ 
+# compute the correlation of each feature with Speed
+cor_df &lt;- pokemon_datanum_stats
+  pokemon_datanum_stats %&gt;%    select_if(is.numeric) %&gt;%
+  cor() %&gt;%
+  as.data.frame() %&gt;%
+  select(speed_Corr = speed) %&gt;%
+  arrange(desc(abs(speed_Corr))) %&gt;%
+  rownames_to_column(var = &quot;variable&quot;)
+cor_df</code></pre>
+<p>We can see that while speed does have some correlation with Total. I
+believe that 0.7 as a good threshold for what is a strong enough
+correlation to be significant and legitimate to consider correlation.
+Then according to the visualized data, I would not say that speed is
+really correlated with any numeric variables in the Pokemon data set
+except special attack attack and total.</p>
+<h2 id="summary">Summary</h2>
+<p>This AngelHack Monthly Code Challenge was interesting to me and was a
+great opportunity to apply my coding skill on R as well as
+EDA(Exploratory Data Analysis) techniques to Pokemon data. I am
+currently a student in a computer Engineering and working towards
+getting a Data Analyst certification.</p>
+<p>I used EDA and correlation matrix, scatter plots and box plots
+techniques in this project, in addition to packages like yardstick,
+ggplot2,ggpubr ,tidyverse, L1pack, DT, dplyr and GGally used for data
+visualizations.</p>
+<p>To an avid Pokemon player, these visualizations could be used when
+building a team to see which types of Pokemon have what attack and
+defense profile, or deciding which game to play if you want generally
+stronger or weaker Pokemon. I hope this data visualization were helpful
+in helping you better understand the patterns and trends within the data
+in R. My primary goal of this was to present the pokemon data sets in an
+easily understandable and visually appealing way.</p>
+<h2 id="data-set-used">Data set used:</h2>
+<p>https://www.kaggle.com/datasets/rohanpatil63/pokemon-dataset</p>
+</body>
+</html>
