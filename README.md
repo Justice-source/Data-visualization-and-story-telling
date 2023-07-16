@@ -6,6 +6,10 @@ title: Data Visualization and storytelling
 ---
 [Data analyst audio.webm](https://github.com/Justice-source/Data-visualization-and-story-telling/assets/95739749/495f1f1f-b1a7-471a-b621-ffc958cfeab9)
 
+
+
+[Screen recording of the visualisation] https://github.com/Justice-source/Data-visualization-and-story-telling/assets/95739749/2f733d1b-3db7-4f2e-b918-55a0c3306c76
+
 ## Programs used for data visualisation of the Pokemon datasets
 
 I made used of R ,R is a programming language for statistical computing
