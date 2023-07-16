@@ -4,6 +4,7 @@ date: "`r Sys.Date()`"
 output: html_document
 title: Data Visualization and storytelling
 ---
+[Data analyst audio.webm](https://github.com/Justice-source/Data-visualization-and-story-telling/assets/95739749/495f1f1f-b1a7-471a-b621-ffc958cfeab9)
 
 ## Programs used for data visualisation of the Pokemon datasets
 
